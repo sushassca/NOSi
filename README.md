@@ -2,9 +2,7 @@
 
 ## Alexandre Graça
 
-![alt text]([https://i.ibb.co/dgFq9r7/Screenshot-2022-10-27-182406.png]())
-
-
+![Screenshot](screenshot.png)
 
 ### Getting started
 
