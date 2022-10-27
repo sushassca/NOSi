@@ -1,6 +1,6 @@
-# shapes_test
+# NOSi - Shapes Test
 
-## com.domain.app.shapestest
+## Alexandre Graça
 
 ### Getting started
 
