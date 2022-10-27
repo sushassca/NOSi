@@ -3,7 +3,7 @@
  * SDK version: 5.2.0
  * CLI version: 2.9.1
  * 
- * Generated: Thu, 27 Oct 2022 17:33:18 GMT
+ * Generated: Thu, 27 Oct 2022 17:47:16 GMT
  */
 
 var APP_com_domain_app_shapestest = (function () {
@@ -6476,6 +6476,7 @@ var APP_com_domain_app_shapestest = (function () {
   class Pentagon extends lng.Component {
     _init() {
       // Animations Setup's - Zooms
+      // I could use just the zoomIn and play it and stop it at the toggle but when I spam the ENTER/RETURN it gets buggy 😒
       // https://lightningjs.io/docs/#/lightning-core-reference/Animations/index?id=live-demo
       this._zoomIn = this.tag('Shape').animation({
         duration: 3,

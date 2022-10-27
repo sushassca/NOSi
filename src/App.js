@@ -289,6 +289,7 @@ class Ellipse extends lng.Component {
 class Pentagon extends lng.Component {
   _init() {
     // Animations Setup's - Zooms
+    // I could use just the zoomIn and play it and stop it at the toggle but when I spam the ENTER/RETURN it gets buggy 😒
     // https://lightningjs.io/docs/#/lightning-core-reference/Animations/index?id=live-demo
     this._zoomIn = this.tag('Shape').animation({
       duration: 3,
