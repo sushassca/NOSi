@@ -1,7 +1,7 @@
 # NOSi - Shapes Test
 
 ![Screenshot](screenshot.png)
-> Alexandre Graça
+## Alexandre Graça
 
 ### Getting started
 
