@@ -3,7 +3,7 @@
  * SDK version: 5.2.0
  * CLI version: 2.9.1
  * 
- * Generated: Thu, 27 Oct 2022 20:26:55 GMT
+ * Generated: Thu, 27 Oct 2022 20:29:15 GMT
  */
 
 var APP_com_domain_app_shapestest = (function () {
@@ -6578,7 +6578,7 @@ var APP_com_domain_app_shapestest = (function () {
       let numberOfSides = 5;
       let size = 75;
       let step = 2 * Math.PI / numberOfSides;
-      let shift = Math.PI / 180.0 * -1;
+      let shift = Math.PI / 180.0 * -18;
 
       // Generating Pentagon 🔶
       // https://stackoverflow.com/questions/36529781/how-to-draw-a-simple-pentagon-in-canvas

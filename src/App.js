@@ -405,7 +405,7 @@ class Pentagon extends lng.Component {
     let numberOfSides = 5
     let size = 75
     let step = (2 * Math.PI) / numberOfSides
-    let shift = (Math.PI / 180.0) * -1
+    let shift = (Math.PI / 180.0) * -18
 
     // Generating Pentagon 🔶
     // https://stackoverflow.com/questions/36529781/how-to-draw-a-simple-pentagon-in-canvas
