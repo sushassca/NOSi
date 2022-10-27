@@ -3,7 +3,7 @@
  * SDK version: 5.2.0
  * CLI version: 2.9.1
  * 
- * Generated: Thu, 27 Oct 2022 17:32:14 GMT
+ * Generated: Thu, 27 Oct 2022 17:33:18 GMT
  */
 
 var APP_com_domain_app_shapestest = (function () {
