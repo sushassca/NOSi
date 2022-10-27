@@ -1,0 +1,6 @@
+{
+  "name": "shapes_test",
+  "identifier": "com.domain.app.shapestest",
+  "version": "1.0.0",
+  "icon": "./static/icon.png"
+}

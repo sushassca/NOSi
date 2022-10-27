@@ -1,0 +1,18 @@
+{
+  "appSettings": {
+    "stage": {
+      "useImageWorker": true
+    },
+    "showFps": {
+      "interval": 300,
+      "log": true,
+      "threshold": 3
+    },
+    "debug": true
+  },
+  "platformSettings": {
+    "path": "./static",
+    "log": true,
+    "showVersion": true
+  }
+}
