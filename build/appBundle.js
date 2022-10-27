@@ -3,7 +3,7 @@
  * SDK version: 5.2.0
  * CLI version: 2.9.1
  * 
- * Generated: Thu, 27 Oct 2022 17:22:55 GMT
+ * Generated: Thu, 27 Oct 2022 17:32:14 GMT
  */
 
 var APP_com_domain_app_shapestest = (function () {
@@ -6366,6 +6366,7 @@ var APP_com_domain_app_shapestest = (function () {
           text: 'Star'
         }
       });
+      //this._rotate.pause() didn't like the output of the focus so decided to just return it to the original position
       this._rotate.stop();
     }
 

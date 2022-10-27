@@ -162,6 +162,7 @@ class Star extends lng.Component {
         text: 'Star',
       },
     })
+    //this._rotate.pause() didn't like the output of the focus so decided to just return it to the original position
     this._rotate.stop()
   }
 
