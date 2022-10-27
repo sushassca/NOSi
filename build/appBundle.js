@@ -3,7 +3,7 @@
  * SDK version: 5.2.0
  * CLI version: 2.9.1
  * 
- * Generated: Thu, 27 Oct 2022 17:47:16 GMT
+ * Generated: Thu, 27 Oct 2022 20:26:55 GMT
  */
 
 var APP_com_domain_app_shapestest = (function () {
@@ -6377,7 +6377,7 @@ var APP_com_domain_app_shapestest = (function () {
       let canvasCtx = canvas.getContext('2d');
       canvas.width = settings.shapes.width;
       canvas.height = settings.shapes.height;
-      let starXY = [settings.shapes.width / 2, settings.shapes.height / 2];
+      let XY = [settings.shapes.width / 2, settings.shapes.height / 2];
       let alpha = 2 * Math.PI / 10;
       let radius = 75;
 
@@ -6387,7 +6387,7 @@ var APP_com_domain_app_shapestest = (function () {
       for (let i = 11; i != 0; i--) {
         let r = radius * (i % 2 + 1) / 2;
         let omega = alpha * i;
-        canvasCtx.lineTo(r * Math.sin(omega) + starXY[0], r * Math.cos(omega) + starXY[1]);
+        canvasCtx.lineTo(r * Math.sin(omega) + XY[0], r * Math.cos(omega) + XY[1]);
       }
       canvasCtx.closePath();
       canvasCtx.fillStyle = '#e9c46a';
@@ -6448,9 +6448,7 @@ var APP_com_domain_app_shapestest = (function () {
       let canvasCtx = canvas.getContext('2d');
       canvas.width = settings.shapes.width;
       canvas.height = settings.shapes.height;
-      let starXY = [settings.shapes.width / 2, settings.shapes.height / 2];
-      let cx = starXY[0];
-      let cy = starXY[1];
+      let XY = [settings.shapes.width / 2, settings.shapes.height / 2];
       let rx = 60;
       let ry = 75;
 
@@ -6459,7 +6457,7 @@ var APP_com_domain_app_shapestest = (function () {
 
       canvasCtx.save();
       canvasCtx.beginPath();
-      canvasCtx.translate(cx - rx, cy - ry);
+      canvasCtx.translate(XY[0] - rx, XY[1] - ry);
       canvasCtx.scale(rx, ry);
       canvasCtx.arc(1, 1, 1, 0, 2 * Math.PI, false);
       canvasCtx.restore();
@@ -6576,13 +6574,11 @@ var APP_com_domain_app_shapestest = (function () {
       let canvasCtx = canvas.getContext('2d');
       canvas.width = settings.shapes.width;
       canvas.height = settings.shapes.height;
-      let starXY = [settings.shapes.width / 2, settings.shapes.height / 2];
-      let numberOfSides = 5,
-        size = 75,
-        Xcenter = starXY[0],
-        Ycenter = starXY[1],
-        step = 2 * Math.PI / numberOfSides,
-        shift = Math.PI / 180.0 * -18;
+      let XY = [settings.shapes.width / 2, settings.shapes.height / 2];
+      let numberOfSides = 5;
+      let size = 75;
+      let step = 2 * Math.PI / numberOfSides;
+      let shift = Math.PI / 180.0 * -1;
 
       // Generating Pentagon 🔶
       // https://stackoverflow.com/questions/36529781/how-to-draw-a-simple-pentagon-in-canvas
@@ -6590,7 +6586,7 @@ var APP_com_domain_app_shapestest = (function () {
       canvasCtx.beginPath();
       for (let i = 0; i <= numberOfSides; i++) {
         let curStep = i * step + shift;
-        canvasCtx.lineTo(Xcenter + size * Math.cos(curStep), Ycenter + size * Math.sin(curStep));
+        canvasCtx.lineTo(XY[0] + size * Math.cos(curStep), XY[1] + size * Math.sin(curStep));
       }
 
       // On focus add border
