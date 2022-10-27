@@ -26,6 +26,3 @@ During development you can use the **watcher** functionality of the _Lightning-C
 - use `lng watch` to automatically _rebuild_ your App whenever you make a change in the `src` or  `static` folder
 - use `lng dev` to start the watcher and run a local webserver / open the App in a browser _at the same time_
 
-#### Documentation
-
-Use `lng docs` to open up the Lightning-SDK documentation.
