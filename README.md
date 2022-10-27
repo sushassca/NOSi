@@ -1,4 +1,4 @@
-# NOSi - Shapes Test
+# NOSi - Shapes
 
 ![Screenshot](screenshot.png)
 ## Alexandre Graça 😈
