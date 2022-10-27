@@ -3,7 +3,7 @@
  * SDK version: 5.2.0
  * CLI version: 2.9.1
  * 
- * Generated: Thu, 27 Oct 2022 20:29:15 GMT
+ * Generated: Thu, 27 Oct 2022 23:05:44 GMT
  */
 
 var APP_com_domain_app_shapestest = (function () {
@@ -6323,7 +6323,7 @@ var APP_com_domain_app_shapestest = (function () {
   }
 
   //#########################################################
-  //##  Component - AKA (⭐ STAR)
+  //##  Component - AKA (⭐ Star)
   //#########################################################
 
   class Star extends lng.Component {

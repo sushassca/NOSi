@@ -115,7 +115,7 @@ export default class App extends lng.Component {
 }
 
 //#########################################################
-//##  Component - AKA (⭐ STAR)
+//##  Component - AKA (⭐ Star)
 //#########################################################
 
 class Star extends lng.Component {
