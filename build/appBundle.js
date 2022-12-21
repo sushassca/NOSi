@@ -3,7 +3,7 @@
  * SDK version: 5.2.0
  * CLI version: 2.9.1
  * 
- * Generated: Thu, 27 Oct 2022 23:05:44 GMT
+ * Generated: Mon, 19 Dec 2022 00:55:17 GMT
  */
 
 var APP_com_domain_app_shapestest = (function () {
@@ -6220,6 +6220,14 @@ var APP_com_domain_app_shapestest = (function () {
   //##  Config Settings 😈
   //#########################################################
   /* eslint-disable no-undef */
+
+  // Defining shapes components object
+  const shapes = {
+    Star,
+    Ellipse,
+    Pentagon,
+    Trapezoid
+  };
   const settings = {
     shapes: {
       width: 300,
@@ -6231,7 +6239,7 @@ var APP_com_domain_app_shapestest = (function () {
     slider: {
       width: 900,
       height: 350,
-      x: window.innerWidth / 2 - 450,
+      x: window.innerWidth / 2 - 150 * 4,
       y: window.innerHeight / 2 - 175
     }
   };
@@ -6261,12 +6269,6 @@ var APP_com_domain_app_shapestest = (function () {
       };
     }
     _init() {
-      // Defining shapes components object
-      const shapes = {
-        Star,
-        Ellipse,
-        Pentagon
-      };
       // Getting the keys
       const sKeys = Object.keys(shapes);
 
@@ -6600,6 +6602,88 @@ var APP_com_domain_app_shapestest = (function () {
       cb(null, canvas);
     }
   }
+  class Trapezoid extends lng.Component {
+    _init() {
+      // Animations Setup's - Zooms
+      // I could use just the zoomIn and play it and stop it at the toggle but when I spam the ENTER/RETURN it gets buggy 😒
+      // https://lightningjs.io/docs/#/lightning-core-reference/Animations/index?id=live-demo
+      this.patch({
+        Label: {
+          y: 285
+        }
+      });
+    }
+    _focus() {
+      this.patch({
+        smooth: {
+          color: Colors(settings.shapes.colors[1]).get(),
+          scale: 1.0
+        },
+        Label: {
+          text: 'Trapezoid (Focus)'
+        }
+      });
+    }
+    _unfocus() {
+      this.patch({
+        smooth: {
+          color: Colors(settings.shapes.colors[0]).get(),
+          scale: 1.0
+        },
+        Label: {
+          text: 'Trapezoid'
+        }
+      });
+    }
+
+    // https://lightningjs.io/docs/#/lightning-core-reference/Components/CompStates/NestingStates?id=live-demo
+    // Organizing the states
+
+    // Draw method 🙄
+    // https://lightningjs.io/docs/#/lightning-core-reference/RenderEngine/Textures/Canvas?id=live-demo
+    static draw(cb, stage) {
+      console.log({
+        cb,
+        stage
+      });
+      let canvas = stage.platform.getDrawingCanvas();
+      let canvasCtx = canvas.getContext('2d');
+      canvasCtx.lineCap = 'round';
+      canvasCtx.lineJoin = 'round';
+      canvasCtx.lineWidth = 2;
+      canvasCtx.shadowBlur = 2;
+      // Defining the max x and y
+      canvas.width = settings.shapes.width;
+      canvas.height = settings.shapes.height;
+
+      // Adding vertexes coordinates to generate a Trapezoid
+      const vertexes = [{
+        // vertex number one = top left corner
+        x: 0,
+        y: canvas.height - 24
+      }, {
+        // vertex number two = top right corner
+        x: canvas.width,
+        y: canvas.height - 12
+      }, {
+        // vertex number three = bottom right corner
+        x: canvas.width,
+        y: canvas.height
+      }, {
+        // vertex number four = bottom left corner
+        x: 0,
+        y: canvas.height
+      }];
+      vertexes.forEach(vertex => {
+        canvasCtx.bezierCurveTo(vertex.x, vertex.y, vertex.x, vertex.y, vertex.x, vertex.y);
+        //canvasCtx.lineTo(vertex.x, vertex.y)
+      });
+
+      canvasCtx.fillStyle = '#ff87ab';
+      canvasCtx.fill();
+      cb(null, canvas);
+    }
+  }
 
   //## 🍕 Docs Visited
   //##  https://lightningjs.io/docs/
@@ -6618,6 +6702,12 @@ var APP_com_domain_app_shapestest = (function () {
     };
     return Launch(App, options, ...arguments);
   }
+  const target = document.body;
+  const event = 'resize';
+  const handler = event => {
+    console.log(event);
+  };
+  Registry.addEventListener(target, event, handler);
 
   return index;
 

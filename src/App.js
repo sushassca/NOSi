@@ -5,6 +5,15 @@ import { Colors, Utils } from '@lightningjs/sdk'
 //##  Config Settings 😈
 //#########################################################
 /* eslint-disable no-undef */
+
+// Defining shapes components object
+const shapes = {
+  Star,
+  Ellipse,
+  Pentagon,
+  Trapezoid,
+}
+
 const settings = {
   shapes: {
     width: 300,
@@ -16,7 +25,7 @@ const settings = {
   slider: {
     width: 900,
     height: 350,
-    x: window.innerWidth / 2 - 450,
+    x: window.innerWidth / 2 - 150 * 4,
     y: window.innerHeight / 2 - 175,
   },
 }
@@ -50,12 +59,6 @@ export default class App extends lng.Component {
   }
 
   _init() {
-    // Defining shapes components object
-    const shapes = {
-      Star,
-      Ellipse,
-      Pentagon,
-    }
     // Getting the keys
     const sKeys = Object.keys(shapes)
 
@@ -425,6 +428,95 @@ class Pentagon extends lng.Component {
     }
 
     canvasCtx.fillStyle = '#5390d9'
+    canvasCtx.fill()
+
+    cb(null, canvas)
+  }
+}
+
+class Trapezoid extends lng.Component {
+  _init() {
+    // Animations Setup's - Zooms
+    // I could use just the zoomIn and play it and stop it at the toggle but when I spam the ENTER/RETURN it gets buggy 😒
+    // https://lightningjs.io/docs/#/lightning-core-reference/Animations/index?id=live-demo
+    this.patch({
+      Label: {
+        y: 285,
+      },
+    })
+  }
+
+  _focus() {
+    this.patch({
+      smooth: {
+        color: Colors(settings.shapes.colors[1]).get(),
+        scale: 1.0,
+      },
+      Label: {
+        text: 'Trapezoid (Focus)',
+      },
+    })
+  }
+
+  _unfocus() {
+    this.patch({
+      smooth: {
+        color: Colors(settings.shapes.colors[0]).get(),
+        scale: 1.0,
+      },
+      Label: {
+        text: 'Trapezoid',
+      },
+    })
+  }
+
+  // https://lightningjs.io/docs/#/lightning-core-reference/Components/CompStates/NestingStates?id=live-demo
+  // Organizing the states
+
+  // Draw method 🙄
+  // https://lightningjs.io/docs/#/lightning-core-reference/RenderEngine/Textures/Canvas?id=live-demo
+  static draw(cb, stage) {
+    console.log({ cb, stage })
+    let canvas = stage.platform.getDrawingCanvas()
+    let canvasCtx = canvas.getContext('2d')
+    canvasCtx.lineCap = 'round'
+    canvasCtx.lineJoin = 'round'
+    canvasCtx.lineWidth = 2
+    canvasCtx.shadowBlur = 2
+    // Defining the max x and y
+    canvas.width = settings.shapes.width
+    canvas.height = settings.shapes.height
+
+    // Adding vertexes coordinates to generate a Trapezoid
+    const vertexes = [
+      {
+        // vertex number one = top left corner
+        x: 0,
+        y: canvas.height - 24,
+      },
+      {
+        // vertex number two = top right corner
+        x: canvas.width,
+        y: canvas.height - 12,
+      },
+      {
+        // vertex number three = bottom right corner
+        x: canvas.width,
+        y: canvas.height,
+      },
+      {
+        // vertex number four = bottom left corner
+        x: 0,
+        y: canvas.height,
+      },
+    ]
+
+    vertexes.forEach((vertex) => {
+      canvasCtx.bezierCurveTo(vertex.x, vertex.y, vertex.x, vertex.y, vertex.x, vertex.y)
+      //canvasCtx.lineTo(vertex.x, vertex.y)
+    })
+
+    canvasCtx.fillStyle = '#ff87ab'
     canvasCtx.fill()
 
     cb(null, canvas)

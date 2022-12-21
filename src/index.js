@@ -1,4 +1,4 @@
-import { Launch, Colors } from '@lightningjs/sdk'
+import { Launch, Colors, Registry } from '@lightningjs/sdk'
 import App from './App.js'
 
 //## 🍕 Docs Visited
@@ -18,3 +18,11 @@ export default function () {
   }
   return Launch(App, options, ...arguments)
 }
+
+const target = document.body
+const event = 'resize'
+const handler = (event) => {
+  console.log(event)
+}
+
+Registry.addEventListener(target, event, handler)
